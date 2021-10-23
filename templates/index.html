@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Predict the Activity</h1>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            <input type="number" name="time" id="time" placeholder="Time taken">
+            <input type="number" name="acc_frontal_axis" id="acc_frontal_axis" placeholder="Frontal-axis Acceleration reading in G">
+            <input type="number" name="acc_vertical_axis" id="acc_vertical_axis" placeholder="Vertical-axis Acceleration reading in G">
+            <input type="number" name="acc_lateral_axis" id="acc_lateral_axis" placeholder="Lateral-axis Acceleration reading in G">
+            <input type="number" name="frequency" id="frequency" placeholder="Frequency">
+            <input type="number" name="rssi" id="rssi" placeholder="RSSI">
+            <input type="number" name="phase" id="phase" placeholder="Phase">
+            <select name="antenna_id" id="antenna_id">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+            <select name="room" id="room">
+  <option value="1">Room1</option>
+  <option value="2">Room2</option>
+</select>
+            <select name="gender" id="gender">
+  <option value="1">Male</option>
+  <option value="0">Female</option>
+</select>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
+{% endblock %}
